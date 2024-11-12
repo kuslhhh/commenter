@@ -36,15 +36,18 @@ export class inMemoryStore implements store {
         const room = this.store.get(roomId)
 
         if(!room){
-            return 
+            return null;
         }
-        room.chats.push({
+
+        const chat = {
             id: (globalChatId++).toString(),
             userId,
             name,
             message,
             upVotes: []           
-        })
+        }  
+        room.chats.push(chat)
+        return chat;
     }
 
     upvote( userId: UserId, roomId: string, chatId: string) {
@@ -58,9 +61,7 @@ export class inMemoryStore implements store {
         if(chat) {
             chat.upVotes.push(userId)
         }
+        return chat;    
     }   
-
-
-
 
 }
