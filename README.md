@@ -17,7 +17,7 @@ This project provides a simple WebSocket server using the `websocket` package. D
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd server
+   cd commenter
    ```
 
 3. **Install Dependencies**
