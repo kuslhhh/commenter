@@ -2,7 +2,7 @@
 
 export enum supportMessage {
     addChat = "ADD_CHAT",
-    Updatechat = "Updatechat",
+    Updatechat = "UPDATE_CHAT",
     upvoteMessage = "UPVOTE_MESSAGE"
 }
 

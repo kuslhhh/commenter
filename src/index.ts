@@ -87,9 +87,13 @@ function messageHandler(ws: connection, message: IncomingMessages) {
     if (message.type === supportMessage.upvoteMessage) {
         const payload = message.payload;
         const chat = store.upvote(payload.userId, payload.roomId, payload.chatId);
+
+        console.log("inside upvote 1")
+
         if (!chat) {
             return;
         }
+        console.log("inside upvote 2")
 
         const outgoingPayload: OutgoingMessages= {
             type: OutgoingSupportedMessages.Updatechat,
@@ -99,6 +103,9 @@ function messageHandler(ws: connection, message: IncomingMessages) {
                 upvotes: chat.upvotes.length
             }
         }
+
+        console.log("inside upvote 3")
+
 
         userManager.broadcast(payload.roomId, payload.userId, outgoingPayload);
     }
